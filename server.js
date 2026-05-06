@@ -78,7 +78,7 @@ app.post("/chat", async (req, res) => {
     const data = await response.json();
 
     console.log(JSON.stringify(data, null, 2));
-
+    console.log(data);  
     const reply =
       data.choices?.[0]?.message?.content ||
       "No response from AI";
