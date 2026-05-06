@@ -14,30 +14,43 @@ app.get("/", (req, res) => {
 
 app.post("/analyze", async (req, res) => {
 
-  res.json({
-    plantName: "Tomato Plant",
-    diseaseName: "Leaf Blight",
-    severity: "Moderate",
-    confidence: 94,
-    description:
-      "The plant shows signs of fungal leaf blight with dark spots and yellowing.",
-    symptoms: [
-      "Dark brown spots",
-      "Yellow leaves",
-      "Leaf drying"
-    ],
-    treatments: [
-      "Use copper fungicide",
-      "Remove infected leaves",
-      "Avoid overwatering"
-    ],
-    preventiveMeasures: [
-      "Improve air circulation",
-      "Water in the morning",
-      "Inspect leaves regularly"
-    ],
-    urgency: "Treat Soon"
-  });
+  try {
+
+    const result = {
+      plantName: "Tomato Plant",
+      diseaseName: "Leaf Blight",
+      severity: "Moderate",
+      confidence: 94,
+      description: "The plant shows signs of fungal leaf blight with dark spots and yellowing.",
+      symptoms: [
+        "Dark brown spots",
+        "Yellow leaves",
+        "Leaf drying"
+      ],
+      treatments: [
+        "Use copper fungicide",
+        "Remove infected leaves",
+        "Avoid overwatering"
+      ],
+      preventiveMeasures: [
+        "Improve air circulation",
+        "Water in the morning",
+        "Inspect leaves regularly"
+      ],
+      urgency: "Treat Soon"
+    };
+
+    res.json(result);
+
+  } catch (error) {
+
+    console.log(error);
+
+    res.status(500).json({
+      error: "Analysis failed"
+    });
+
+  }
 
 });
 
