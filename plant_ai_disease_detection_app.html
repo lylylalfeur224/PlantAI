@@ -435,7 +435,7 @@ Respond ONLY with a valid JSON object (no markdown, no extra text) with these ex
 
 Be specific and accurate. If the plant appears healthy, say so.`;
 
-    const response = await fetch('http://localhost:3000/analyze', {
+    const response = await fetch('https://plantai-ocpy.onrender.com/', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -525,7 +525,7 @@ async function sendChat(){
   
  try {
 
-    const response = await fetch('http://localhost:3000/chat', {
+    const response = await fetch('https://plantai-ocpy.onrender.com/', {
 
         method: 'POST',
 
